@@ -61,16 +61,17 @@ class GameFragment : Fragment() {
         binding.skipButton.setOnClickListener {
             viewModel.onSkip()
         }
-
+        //LiveData observer for score
         viewModel.score.observe(viewLifecycleOwner,
          Observer{newScore ->
                     binding.scoreText.text = newScore.toString()
          })
+        //LiveData observer for word
         viewModel.word.observe(viewLifecycleOwner ,
         Observer { newWord ->
                      binding.wordText.text = newWord
-
         })
+
         return binding.root
 
     }
