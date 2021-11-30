@@ -17,6 +17,7 @@
 package com.example.android.guesstheword.screens.game
 
 import android.os.Bundle
+import android.text.format.DateUtils
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -53,6 +54,7 @@ class GameFragment : Fragment() {
         )
 
         Log.i("GameFragment", "ViewModelProviders.of ")
+
         //ViewModelProvider to associate a viewModel with the fragment
         viewModel = ViewModelProviders.of(this).get(GameViewModel:: class.java)
 
@@ -83,6 +85,13 @@ class GameFragment : Fragment() {
             }
         })
 
+        //LiveData currentTime
+        viewModel.currentTime.observe(viewLifecycleOwner,
+                                    Observer{ newTime ->
+                                        binding.timerText.text = DateUtils.formatElapsedTime(newTime)
+
+                                    })
+
         return binding.root
 
     }
@@ -95,5 +104,6 @@ class GameFragment : Fragment() {
         findNavController(this).navigate(action)
 
      }
+
 
 }
