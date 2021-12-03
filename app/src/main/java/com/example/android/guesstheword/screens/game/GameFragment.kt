@@ -56,8 +56,9 @@ class GameFragment : Fragment() {
         Log.i("GameFragment", "ViewModelProviders.of ")
 
         //ViewModelProvider to associate a viewModel with the fragment
-        viewModel = ViewModelProviders.of(this).get(GameViewModel:: class.java)
+      //  viewModel = ViewModelProviders.of(this).get(GameViewModel:: class.java)
 
+        viewModel = ViewModelProvider(this).get(GameViewModel :: class.java)
         binding.gameViewModel = viewModel
 
 

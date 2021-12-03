@@ -57,8 +57,8 @@ class ScoreFragment : Fragment() {
 
         //initializing viewModel and viewModelFactory
         viewModelFactory = ScoreViewModelFactory(scoreFragmentArgs.score)
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(ScoreViewModel::class.java)
-
+       // viewModel = ViewModelProviders.of(this, viewModelFactory).get(ScoreViewModel::class.java)
+        viewModel = ViewModelProvider(this , viewModelFactory).get(ScoreViewModel :: class.java)
         //data binding viewModel
         binding.scoreViewModel = viewModel
 
