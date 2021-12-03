@@ -58,12 +58,8 @@ class GameFragment : Fragment() {
         //ViewModelProvider to associate a viewModel with the fragment
         viewModel = ViewModelProviders.of(this).get(GameViewModel:: class.java)
 
-        binding.correctButton.setOnClickListener {
-            viewModel.onCorrect()
-        }
-        binding.skipButton.setOnClickListener {
-            viewModel.onSkip()
-        }
+        binding.gameViewModel = viewModel
+
 
         //LiveData observer for score
         viewModel.score.observe(viewLifecycleOwner,
